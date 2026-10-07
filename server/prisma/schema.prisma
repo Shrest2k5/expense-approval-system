@@ -1,0 +1,26 @@
+// Prisma Schema File for Expense Approval System
+// Learn more about Prisma schema at: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Datasource definition:
+// Default is SQLite for out-of-the-box zero setup.
+// To use PostgreSQL:
+// Change provider to "postgresql" and set DATABASE_URL in .env to your PostgreSQL connection string.
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// Model Expense represents an employee expense claim submission.
+model Expense {
+  id           String   @id @default(uuid()) // Unique UUID identifier
+  employeeName String                        // Full name of employee submitting expense
+  amount       Float                         // Monetry amount in USD/currency
+  description  String                        // Detail description or reason for claim
+  date         DateTime                      // Date when expense occurred
+  status       String   @default("PENDING")  // Status: PENDING, APPROVED, or REJECTED
+  createdAt    DateTime @default(now())      // Timestamp when claim was created
+}

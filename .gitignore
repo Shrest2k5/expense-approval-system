@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Production builds
+dist/
+build/
+
+# Local databases & binary files
+*.db
+*.sqlite
+*.db-journal
+
+# Environment variables
+.env
+.env.local
+
+# Generated build artifacts
+seed.js
+
+# OS metadata
+.DS_Store
+Thumbs.db

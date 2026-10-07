@@ -1,0 +1,17 @@
+{
+  "name": "expense-approval-system",
+  "version": "1.0.0",
+  "description": "Full-stack Expense Approval System with React, Vite, Express, Prisma ORM",
+  "main": "index.js",
+  "scripts": {
+    "setup": "npm install && npm run install:all && npm run db:setup",
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "db:setup": "npm --prefix server run db:push && npm --prefix server run db:seed",
+    "start": "concurrently -k -n \"SERVER,CLIENT\" -c \"cyan,magenta\" \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
